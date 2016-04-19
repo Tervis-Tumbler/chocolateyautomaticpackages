@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>kibana</id>
+    <title>Kibana</title>
+    <version>{{PackageVersion}}</version>
+    <authors>https://github.com/elastic/kibana/graphs/contributors</authors>
+    <owners>hambone</owners>
+    <summary>Explore and Visualize Your Data</summary>
+    <description>Kibana is an open source data visualization platform that allows you to interact with your data through stunning, powerful graphics that can be combined into custom dashboards that help you share insights from your data far and wide.
+	
+	Kibana will be installed in Program Files\Kibana. Must be run as admin.
+    </description>
+    <projectUrl>https://www.elastic.co/products/kibana</projectUrl>
+    <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolatey-kibana</packageSourceUrl>
+    <projectSourceUrl>https://github.com/elastic/Kibana/graphs/contributors</projectSourceUrl>
+    <docsUrl>https://github.com/elastic/Kibana/wiki</docsUrl>
+    <tags>data kibana visualization elastic</tags>
+    <licenseUrl>https://github.com/elastic/kibana/blob/master/LICENSE.md</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+	  <dependency id="jdk8" />
+    </dependencies>
+    <releaseNotes>https://www.elastic.co/guide/en/kibana/4.5/releasenotes.html</releaseNotes>
+  </metadata>
+</package>
