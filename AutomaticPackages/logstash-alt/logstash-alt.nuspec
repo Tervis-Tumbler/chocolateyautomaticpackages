@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>logstash-alt</id>
+    <title>Logstash-Alt</title>
+    <version>{{PackageVersion}}</version>
+    <authors>https://github.com/elastic/logstash/graphs/contributors</authors>
+    <owners>hambone</owners>
+    <summary>Collect, Enrich and Transport Data</summary>
+    <description>Logstash is an open source data collection engine with real-time pipelining capabilities. Logstash can dynamically unify data from disparate sources and normalize the data into destinations of your choice. Cleanse and democratize all your data for diverse advanced downstream analytics and visualization use cases. 
+	
+	This is the automatic package version of Logstash. Logstash will be installed in Program Files\logstash-alt. Must be run as admin.
+    </description>
+    <projectUrl>https://www.elastic.co/products/logstash</projectUrl>
+    <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolatey-packages/tree/master/AutomaticPackages/logstash-alt</packageSourceUrl>
+    <projectSourceUrl>https://github.com/elastic/logstash/graphs/contributors</projectSourceUrl>
+    <docsUrl>https://github.com/elastic/logstash/wiki</docsUrl>
+    <tags>logstash2 logstash logging elastic</tags>
+    <licenseUrl>https://github.com/elastic/logstash/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <iconUrl>http://logstash.net/images/logstash.png</iconUrl>
+    <dependencies>
+	  <dependency id="jdk8" />
+    </dependencies>
+  </metadata>
+</package>

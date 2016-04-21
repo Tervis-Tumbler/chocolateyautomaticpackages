@@ -9,10 +9,10 @@
     <summary>Explore and Visualize Your Data</summary>
     <description>Kibana is an open source data visualization platform that allows you to interact with your data through stunning, powerful graphics that can be combined into custom dashboards that help you share insights from your data far and wide.
 	
-	Kibana will be installed in Program Files\Kibana. Must be run as admin.
+	Kibana will be installed in Program Files\Kibana. Must be run as admin. Automatic Package.
     </description>
     <projectUrl>https://www.elastic.co/products/kibana</projectUrl>
-    <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolatey-kibana</packageSourceUrl>
+    <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolatey-packages/tree/master/AutomaticPackages/kibana</packageSourceUrl>
     <projectSourceUrl>https://github.com/elastic/Kibana/graphs/contributors</projectSourceUrl>
     <docsUrl>https://github.com/elastic/Kibana/wiki</docsUrl>
     <tags>data kibana visualization elastic</tags>
@@ -21,6 +21,5 @@
     <dependencies>
 	  <dependency id="jdk8" />
     </dependencies>
-    <releaseNotes>https://www.elastic.co/guide/en/kibana/4.5/releasenotes.html</releaseNotes>
   </metadata>
 </package>
