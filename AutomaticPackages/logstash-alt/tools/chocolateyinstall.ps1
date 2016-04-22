@@ -6,7 +6,7 @@ https://chocolatey.org/packages/logstash-contrib
 $PackageName = "logstash-alt"
 $PackageDirectory="$env:ProgramFiles\$PackageName"
 $PackageVersion = "2.3.1"
-$url="https://download.elastic.co/logstash/logstash/logstash-$PackageVersion.tar.gz"
+$url="http://download.elastic.co/logstash/logstash/logstash-$PackageVersion.tar.gz"
 
 Write-Host "Making sure there are no traces of an old installation. Cleaning up ${PackageDirectory}"
 

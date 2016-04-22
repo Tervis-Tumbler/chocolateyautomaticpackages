@@ -7,7 +7,7 @@ https://chocolatey.org/packages/logstash-contrib
 $PackageName = '{{PackageName}}'
 $PackageVersion = '{{PackageVersion}}'
 $PackageDirectory="$env:ProgramFiles\$PackageName"
-$DownloadURL = "https://download.elastic.co/$PackageName/$PackageName/$PackageName-$PackageVersion-windows.zip"
+$DownloadURL = "http://download.elastic.co/$PackageName/$PackageName/$PackageName-$PackageVersion-windows.zip"
 
 Write-Host "Making sure there are no traces of an old installation. Cleaning up $PackageDirectory."
 
