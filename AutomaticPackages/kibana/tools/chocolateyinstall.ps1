@@ -6,7 +6,8 @@ https://chocolatey.org/packages/logstash-contrib
 
 $PackageName = '{{PackageName}}'
 $PackageVersion = '{{PackageVersion}}'
-$PackageDirectory="$env:ProgramFiles\$PackageName"
+$ServiceName = 'kibana-service'
+$PackageDirectory="$env:ChocolateyInstall\lib\$PackageName"
 $DownloadURL = "http://download.elastic.co/$PackageName/$PackageName/$PackageName-$PackageVersion-windows.zip"
 
 Write-Host "Making sure there are no traces of an old installation. Cleaning up $PackageDirectory."
@@ -26,9 +27,21 @@ Get-ChocolateyUnzip $(Join-Path $PackageDirectory "${PackageName}Install.zip") "
  
 Write-Host "Moving files from ${PackageDirectory}\${PackageName}-*\* to ${PackageDirectory}"
  
-Copy-Item "${PackageDirectory}\${PackageName}-*\*" "${PackageDirectory}" -Force -Recurse
- 
+Copy-Item "${PackageDirectory}\${PackageName}-*\*" "${PackageDirectory}" -Force -Recurse 
  
 Write-Host "Cleaning up temp files & directories created during this install"
 Remove-Item "${PackageDirectory}\${PackageName}*" -Recurse -Force
 Remove-Item "${PackageDirectory}\${PackageName}Install*" -Recurse -Force
+
+Write-Host "Installing service"
+
+if ($Service = Get-Service $ServiceName -ErrorAction SilentlyContinue) {
+    if ($Service.Status -eq "Running") {
+        Start-ChocolateyProcessAsAdmin "stop $ServiceName" "sc.exe"
+    }
+    Start-ChocolateyProcessAsAdmin "delete $ServiceName" "sc.exe"
+}
+
+Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $PackageDirectory "bin\kibana.bat")" nssm
+Start-ChocolateyProcessAsAdmin "set $ServiceName DependOnService elasticsearch-service-x64" nssm
+Start-ChocolateyProcessAsAdmin "set $ServiceName Start SERVICE_DELAYED_AUTO_START" nssm
