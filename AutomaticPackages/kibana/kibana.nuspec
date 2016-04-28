@@ -21,7 +21,6 @@
     <dependencies>
 	  <dependency id="jdk8" />
 	  <dependency id="nssm" />
-	  <dependency id="elasticsearch" version="2.3.1" />
     </dependencies>
   </metadata>
 </package>
