@@ -43,5 +43,4 @@ if ($Service = Get-Service $ServiceName -ErrorAction SilentlyContinue) {
 }
 
 Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $PackageDirectory "bin\kibana.bat")" nssm
-Start-ChocolateyProcessAsAdmin "set $ServiceName DependOnService elasticsearch-service-x64" nssm
-Start-ChocolateyProcessAsAdmin "set $ServiceName Start SERVICE_DELAYED_AUTO_START" nssm
+Start-ChocolateyProcessAsAdmin "set $ServiceName Start SERVICE_DEMAND_START" nssm
