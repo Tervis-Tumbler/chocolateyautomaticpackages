@@ -1,10 +1,9 @@
 ﻿$PackageName = '{{PackageName}}'
 $PackageVersion = '{{PackageVersion}}'
 $ServiceName = 'kibana-service'
-$PackageDirectory = $env:chocolateyPackageFolder
 $DownloadURL = "http://download.elastic.co/$PackageName/$PackageName/$PackageName-$PackageVersion-windows.zip"
 
-Install-ChocolateyZipPackage -PackageName $PackageName -UnzipLocation $PackageDirectory -Url $DownloadURL
+Install-ChocolateyZipPackage -PackageName $PackageName -UnzipLocation $env:chocolateyPackageFolder -Url $DownloadURL
 
 Write-Host "Installing service"
 
@@ -15,5 +14,5 @@ if ($Service = Get-Service $ServiceName -ErrorAction SilentlyContinue) {
     Start-ChocolateyProcessAsAdmin "delete $ServiceName" "sc.exe"
 }
 
-Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $PackageDirectory "bin\kibana.bat")" nssm
+Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $env:chocolateyPackageFolder "bin\kibana.bat")" nssm
 Start-ChocolateyProcessAsAdmin "set $ServiceName Start SERVICE_DEMAND_START" nssm
