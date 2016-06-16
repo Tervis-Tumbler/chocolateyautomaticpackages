@@ -13,8 +13,8 @@
     </description>
     <projectUrl>https://www.elastic.co/products/kibana</projectUrl>
     <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolatey-packages/tree/master/AutomaticPackages/kibana</packageSourceUrl>
-    <projectSourceUrl>https://github.com/elastic/Kibana/graphs/contributors</projectSourceUrl>
-    <docsUrl>https://github.com/elastic/Kibana/wiki</docsUrl>
+    <projectSourceUrl>https://github.com/elastic/kibana</projectSourceUrl>
+    <docsUrl>https://www.elastic.co/guide/en/kibana/current/index.html</docsUrl>
     <tags>data kibana visualization elastic</tags>
     <licenseUrl>https://github.com/elastic/kibana/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
