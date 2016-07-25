@@ -1,6 +1,6 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
 <Jobs>
-  <ApplicationJob xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Guid="987f4cad-e856-4758-a17c-d0792ebebf18">
+  <ApplicationJob xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Guid="f09f0840-172e-4754-87e5-ba6faa30528b">
     <SourceTemplate><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <Jobs>
   <ApplicationJob xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Guid="0fb30714-8ed0-4611-8f1b-cb8fec9dae91">
@@ -29,7 +29,7 @@
             <RegexRightToLeft>false</RegexRightToLeft>
             <VariableType>StartEnd</VariableType>
             <Regex />
-            <Url><placeholder name="Url with version information" value="https://www.elastic.co/downloads/kibana" /></Url>
+            <Url><placeholder name="Url with version information" value="https://camunda.org/download/modeler/" /></Url>
             <StartText>&lt;TABLE cellspacing ="1" cellpadding ="6" border = "0"&gt;
   &lt;TR&gt;
     &lt;TH class="Title" align="center" width=90&gt;7-Zip </StartText>
@@ -66,15 +66,15 @@
     <FileHippoId />
     <LastUpdated>2012-05-23T02:09:37.7748325</LastUpdated>
     <TargetPath>C:\Chocolatey\_work\</TargetPath>
-    <FixedDownloadUrl><placeholder name="Download Url - Optional" value="https://download.elastic.co/kibana/kibana/kibana-{version}-windows.zip" /></FixedDownloadUrl>
-    <Name><placeholder name="Name" value="Kibana" /></Name>
+    <FixedDownloadUrl><placeholder name="Download Url - Optional" value="" /></FixedDownloadUrl>
+    <Name><placeholder name="Name" value="Camunda Modeler" /></Name>
   </ApplicationJob>
 </Jobs>]]></SourceTemplate>
     <WebsiteUrl />
     <UserAgent>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.168 Safari/535.19</UserAgent>
     <UserNotes />
-    <LastFileSize>31894939</LastFileSize>
-    <LastFileDate>2016-04-14T12:58:31.8518694</LastFileDate>
+    <LastFileSize>47683663</LastFileSize>
+    <LastFileDate>2016-07-18T09:17:18-04:00</LastFileDate>
     <IgnoreFileInformation>false</IgnoreFileInformation>
     <DownloadBeta>Default</DownloadBeta>
     <DownloadDate xsi:nil="true" />
@@ -97,11 +97,9 @@
             <RegexRightToLeft>false</RegexRightToLeft>
             <VariableType>StartEnd</VariableType>
             <Regex />
-            <Url>https://www.elastic.co/downloads/kibana</Url>
-            <StartText>&lt;header&gt;
-						&lt;h2&gt;Kibana </StartText>
-            <EndText>&lt;/h2&gt;
-</EndText>
+            <Url>https://camunda.org/download/modeler/</Url>
+            <StartText>camunda-modeler-</StartText>
+            <EndText>-win32-ia32.zip</EndText>
             <TextualContent />
             <Name>version</Name>
           </UrlVariable>
@@ -121,6 +119,22 @@
           </UrlVariable>
         </value>
       </item>
+      <item>
+        <key>
+          <string>DownloadURL</string>
+        </key>
+        <value>
+          <UrlVariable>
+            <RegexRightToLeft>false</RegexRightToLeft>
+            <VariableType>StartEnd</VariableType>
+            <Regex />
+            <Url>https://camunda.org/download/modeler/</Url>
+            <StartText>&lt;a class="download-modeler" href="</StartText>
+            <EndText>"&gt;camunda-modeler</EndText>
+            <Name>DownloadURL</Name>
+          </UrlVariable>
+        </value>
+      </item>
     </Variables>
     <ExecuteCommand />
     <ExecutePreCommand />
@@ -128,13 +142,13 @@
     <ExecutePreCommandType>Batch</ExecutePreCommandType>
     <Category />
     <SourceType>FixedUrl</SourceType>
-    <PreviousLocation>C:\Chocolatey\_work\kibana-4.5.0-windows.zip</PreviousLocation>
+    <PreviousLocation>C:\Chocolatey\_work\camunda-modeler-1.2.1-win32-ia32.zip</PreviousLocation>
     <DeletePreviousFile>true</DeletePreviousFile>
     <Enabled>true</Enabled>
     <FileHippoId />
-    <LastUpdated>2016-04-14T12:58:31.8518694</LastUpdated>
+    <LastUpdated>2016-07-25T16:20:52.7535676-04:00</LastUpdated>
     <TargetPath>C:\Chocolatey\_work\</TargetPath>
-    <FixedDownloadUrl>https://download.elastic.co/kibana/kibana/kibana-{version}-windows.zip</FixedDownloadUrl>
-    <Name>kibana</Name>
+    <FixedDownloadUrl>{DownloadURL}</FixedDownloadUrl>
+    <Name>camunda-modeler</Name>
   </ApplicationJob>
 </Jobs>
