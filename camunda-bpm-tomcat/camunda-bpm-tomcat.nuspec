@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>camunda-bpm-tomcat</id>
+    <title>Camunda BPM Tomcat</title>
+    <version>{{PackageVersion}}</version>
+    <authors>https://github.com/camunda/camunda-bpm-platform/graphs/contributors</authors>
+    <owners>hambone TervisIT</owners>
+    <summary>The Camunda Engine is lightning fast, and clustering for horizontal scalability is straightforward as the engine is stateless: multiple instances can share the same database.</summary>
+    <description>The core of Camunda BPM is an execution engine for BPMN, CMMN and DMN.
+
+It is lightweight and requires less than 3MB of disk space. It can run in any Java Virtual Machine (JVM) and comes with extended integration for different runtime containers.
+
+You can access the engine via the REST API, or via the Java API and use existing integrations with Spring and Java EE. You can implement BPMN service tasks in Java code, or make use of the built-in REST and SOAP connectors. Besides Java, you can also apply scripts, expressions and templates for process implementation.
+    </description>
+    <projectUrl>https://camunda.org/features/engine/</projectUrl>
+    <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolateyautomaticpackages/tree/master/camunda-bpm-tomcat</packageSourceUrl>
+    <projectSourceUrl>https://github.com/camunda/camunda-bpm-platform</projectSourceUrl>
+    <docsUrl>https://docs.camunda.org/manual/7.5/user-guide/process-engine/</docsUrl>
+    <tags>camunda bpmn bpm tomcat cmmn dmn</tags>
+    <licenseUrl>https://github.com/camunda/camunda-bpm-platform/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+		<dependency id="jdk8" />
+		<dependency id="nssm" />
+    </dependencies>
+  </metadata>
+</package>
