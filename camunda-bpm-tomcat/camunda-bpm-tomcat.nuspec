@@ -3,7 +3,7 @@
   <metadata>
     <id>camunda-bpm-tomcat</id>
     <title>Camunda BPM Tomcat</title>
-    <version>7.5.0</version>
+    <version>{{PackageVersion}}</version>
     <authors>https://github.com/camunda/camunda-bpm-platform/graphs/contributors</authors>
     <owners>hambone TervisIT</owners>
     <summary>The Camunda Engine is lightning fast, and clustering for horizontal scalability is straightforward as the engine is stateless: multiple instances can share the same database.</summary>

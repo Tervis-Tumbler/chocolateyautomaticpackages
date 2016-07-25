@@ -1,16 +1,6 @@
-﻿<#
-
-
-$PackageName = '{{PackageName}}'
+﻿$PackageName = '{{PackageName}}'
 $PackageVersion = '{{PackageVersion}}'
 
-# Replace below with above for automatic packages
-
-#>
-
-
-$PackageName = 'camunda-bpm-tomcat'
-$PackageVersion = '7.5.0'
 $ServiceName = 'camunda-bpm-tomcat-service'
 
 
@@ -36,8 +26,14 @@ function Install-CamundaBPMTomcatService {
         Start-ChocolateyProcessAsAdmin "delete $ServiceName" "sc.exe"
     }
 
-    Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $env:chocolateyPackageFolder "start-camunda.bat")" nssm
+    Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $env:chocolateyPackageFolder "server\apache-tomcat-8.0.24\bin\catalina.bat")" nssm
+    Start-ChocolateyProcessAsAdmin "set $ServiceName AppDirectory $(Join-Path $env:chocolateyPackageFolder "server\apache-tomcat-8.0.24\bin")" nssm
     Start-ChocolateyProcessAsAdmin "set $ServiceName Start SERVICE_DEMAND_START" nssm
+    Start-ChocolateyProcessAsAdmin "set $ServiceName DisplayName `"Camunda BPM Tomcat`"" nssm
+    Start-ChocolateyProcessAsAdmin "set $ServiceName Description `"Camunda BPM Tomcat server`"" nssm
+    Start-ChocolateyProcessAsAdmin "set $ServiceName AppParameters run" nssm
+    Start-ChocolateyProcessAsAdmin "set $ServiceName AppEnvironmentExtra CATALINA_HOME=%ChocolateyInstall%\lib\camunda-bpm-tomcat\server\apache-tomcat-8.0.24" nssm
+
 }
 
 $PathVersionNumber = Set-PathVersion
@@ -46,4 +42,4 @@ $DownloadURL = "https://camunda.org/release/camunda-bpm/tomcat/$PathVersionNumbe
 
 Install-ChocolateyZipPackage -PackageName $PackageName -UnzipLocation $env:chocolateyPackageFolder -Url $DownloadURL
 
-# Install-CamundaBPMTomcatService # Service installer not working yet. May be due to lack of Java installation and environment variable.
+Install-CamundaBPMTomcatService
