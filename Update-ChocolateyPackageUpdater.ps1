@@ -18,4 +18,4 @@ $ChocoPkgUpConfig = @"
 </configuration>
 "@
 
-$ChocoPkgUpConfig > chocopkgup.exe.config
+$ChocoPkgUpConfig | Out-File chocopkgup.exe.config
