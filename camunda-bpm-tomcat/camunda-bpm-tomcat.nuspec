@@ -17,12 +17,14 @@ You can access the engine via the REST API, or via the Java API and use existing
     <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolateyautomaticpackages/tree/master/camunda-bpm-tomcat</packageSourceUrl>
     <projectSourceUrl>https://github.com/camunda/camunda-bpm-platform</projectSourceUrl>
     <docsUrl>https://docs.camunda.org/manual/7.5/user-guide/process-engine/</docsUrl>
-    <tags>camunda bpmn bpm tomcat cmmn dmn</tags>
+    <tags>camunda bpmn bpm tomcat cmmn dmn admin</tags>
     <licenseUrl>https://github.com/camunda/camunda-bpm-platform/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <dependencies>
-		<dependency id="jdk8" />
-		<dependency id="nssm" />
+		<dependency id="jdk8" version="8.0.102" />
+		<dependency id="nssm" version="2.24.0" />
     </dependencies>
+    <iconUrl>http://camunda.com/img/camunda/icon.png</iconUrl>
+    <releaseNotes>https://app.camunda.com/jira/secure/ConfigureReleaseNote.jspa?projectId=10230&version=14091</releaseNotes>
   </metadata>
 </package>
