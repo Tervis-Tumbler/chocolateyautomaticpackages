@@ -14,5 +14,5 @@ if ($Service = Get-Service $ServiceName -ErrorAction SilentlyContinue) {
     Start-ChocolateyProcessAsAdmin "delete $ServiceName" "sc.exe"
 }
 
-Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $env:chocolateyPackageFolder "bin\kibana.bat")" nssm
+Start-ChocolateyProcessAsAdmin "install $ServiceName $(Join-Path $env:chocolateyPackageFolder "kibana-$PackageVersion-windows\bin\kibana.bat")" nssm
 Start-ChocolateyProcessAsAdmin "set $ServiceName Start SERVICE_DEMAND_START" nssm
