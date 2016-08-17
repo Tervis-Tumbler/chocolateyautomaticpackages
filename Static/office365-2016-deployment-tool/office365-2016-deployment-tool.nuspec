@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <metadata>
-    <id>office365-2016-deployment-tool</id>
-    <version>16.0.7213.5776</version>
-    <packageSourceUrl>https://github.com/Tervis-Tumbler/chocolateyautomaticpackages/tree/master/Static/office365-2016-deployment-tool</packageSourceUrl>
-    <owners>hambone</owners>
-    <title>Office365 2016 Deployment Tool</title>
-    <authors>hambone</authors>
-    <projectUrl>http://office.com</projectUrl>
-    <iconUrl>https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg</iconUrl>
-    <copyright>2016 Microsoft</copyright>
-    <licenseUrl>https://www.microsoft.com/en-us/servicesagreement/</licenseUrl>
-    <requireLicenseAcceptance>true</requireLicenseAcceptance>-->
-    <docsUrl>https://support.office.com/</docsUrl>
-    <tags>office365 Office 365 2016 deployment admin</tags>
-    <summary>Office 2016 Deployment Tool</summary>
-    <description>The Office 2016 Deployment Tool allows the administrator to customize and manage Office 2016 Click-to-Run deployments. This tool will help adminstrators to manage installations sources, product/language combinations, and deployment configuration options for Office Click-to-Run. 
+	<metadata>
+		<id>office365-2016-deployment-tool</id>
+		<version>16.0.7213.5776</version>
+		<packageSourceUrl>https://github.com/Tervis-Tumbler/chocolateyautomaticpackages/tree/master/Static/office365-2016-deployment-tool</packageSourceUrl>
+		<owners>hambone</owners>
+		<title>Office365 2016 Deployment Tool</title>
+		<authors>hambone</authors>
+		<projectUrl>http://office.com</projectUrl>
+		<iconUrl>https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg</iconUrl>
+		<copyright>2016 Microsoft</copyright>
+		<licenseUrl>https://www.microsoft.com/en-us/servicesagreement/</licenseUrl>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<docsUrl>https://support.office.com/</docsUrl>
+		<tags>office365 Office 365 2016 deployment admin</tags>
+		<summary>Office 2016 Deployment Tool</summary>
+		<description>
+		The Office 2016 Deployment Tool allows the administrator to customize and manage Office 2016 Click-to-Run deployments. This tool will help adminstrators to manage installations sources, product/language combinations, and deployment configuration options for Office Click-to-Run. 
 	
 Arguments can be passed to the package using:
 
@@ -40,18 +40,13 @@ This will install Office365 2016 32-bit for a single user. Logs will be in %PATH
 `choco install office365-2016-deployment-tool -packageParameters "/64bit /Shared /LogPath:'C:\logs\'"`
 
 This will install Office365 2016 64-bit for a Remote Desktop Server and log the output to C:\logs.
-</description>
-	<dependencies>
-		<dependency id="chocolatey-uninstall.extension" />
-	</dependencies>
-    <releaseNotes>https://support.office.com/en-us/article/What-s-new-and-improved-in-Office-2016-for-Office-365-95c8d81d-08ba-42c1-914f-bca4603e1426?ui=en-US&rs=en-US&ad=US</releaseNotes>
-  </metadata>
-  <files>
-    <file src="tools\**" target="tools" />
-  </files>
+		</description>
+		<dependencies>
+			<dependency id="chocolatey-uninstall.extension" />
+		</dependencies>
+		<releaseNotes>https://support.office.com/</releaseNotes>
+	</metadata>
+	<files>
+		<file src="tools\**" target="tools" />
+	</files>
 </package>
-
-
-choco install office365-2016-deployment-tool -packageParameters "/64bit /Shared /LogPath:'C:\logs\'"
-
-This will install Office365 2016 64-bit for a Remote Desktop Server and log the output to C:\logs.
