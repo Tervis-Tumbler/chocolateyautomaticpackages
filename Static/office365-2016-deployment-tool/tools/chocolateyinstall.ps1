@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop';
 
-$packageName = 'Office365.2016'
+$packageName = 'office365-2016-deployment-tool'
 $packageVersion = "16.0.7213.5776"
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"

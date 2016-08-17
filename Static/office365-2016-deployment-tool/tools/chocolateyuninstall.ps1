@@ -3,7 +3,7 @@ $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $deploymentTool = $(Join-Path $toolsDir 'setup.exe')
 $silentArgs = "/configure $uninstallConfigFileLocation"
 $installerType = 'EXE'
-$packageName = 'Office365.2016'
+$packageName = 'office365-2016-deployment-tool'
 
 Uninstall-ChocolateyPackage -PackageName $packageName `
                             -FileType $installerType `
