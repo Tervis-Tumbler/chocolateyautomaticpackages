@@ -1,12 +1,16 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName = 'Office365.2016'
+$packageVersion = "16.0.7213.5776"
+
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_7213-5776.exe' # download url
 $installConfigFileLocation = $(Join-Path $toolsDir 'install.xml')
 $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $ignoreExtractFile = "officedeploymenttool.exe.ignore"
 $ignoreSetupFile = "setup.exe.ignore"
+
+# Argument defaults
 $arch = 32
 $sharedMachine = 0
 $logPath = "%TEMP%"
@@ -54,6 +58,43 @@ if ($packageParameters) {
     Write-Debug "No Package Parameters Passed in"
     Write-Host "Installing 32-bit version."
     Write-Host "Installation log in directory %TEMP%"
+}
+
+function Get-PreInstalledOfficeVersionArch () {
+    $installedVersion = $null
+    $installedArch = $null
+    
+    $installedOffice32 = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | `
+        foreach { Get-ItemProperty $_.PSPath } | `
+        Where-Object { $_ -match "Microsoft Office*" }
+
+    $installedOffice64 = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | `
+        foreach { Get-ItemProperty $_.PSPath } | `
+        Where-Object { $_ -match "Microsoft Office*" }
+
+    if ($installedOffice32) {
+        $installedArch = 32
+        [int]$installedVersion = $installedOffice32.DisplayVersion.Split(".")[0]
+    } elseif ($installedOffice64) {
+        $installedArch = 32
+        [int]$installedVersion = $installedOffice64.DisplayVersion.Split(".")[0]
+    }
+
+    $officeVersionArch = @{"Version" = $installedVersion; "Architecture" = $installedArch}
+
+    return $officeVersionArch
+}
+
+$PreinstalledOfficeVersionArch = Get-PreInstalledOfficeVersionArch
+
+if ($PreinstalledOfficeVersionArch.Version -ne $null) {
+    if ($PreinstalledOfficeVersionArch.Version -eq $packageVersion.Split(".")[0]) {
+        Write-Error "This version of Office is already installed. Please uninstall prior installations to continue."
+    } 
+    if ($PreinstalledOfficeVersionArch.Architecture -ne $arch) {
+        Write-Error "$($PreinstalledOfficeVersionArch.Architecture)-bit Office previously installed. `
+        Cannot install Office $arch-bit without removing Office $($PreinstalledOfficeVersionArch.Architecture)-bit first."
+    }
 }
 
 $installConfigData = @"
