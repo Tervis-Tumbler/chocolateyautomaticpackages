@@ -17,7 +17,9 @@ Write-Host "OS Platform"
 $env:OS_PLATFORM
 
 Write-Host "OS Version"
-$env:OS_VERSION
+[System.Version]$OSVersion = $env:OS_VERSION
+$OSVersion
+$OSVersion.GetType()
 
 Write-Host "OS Name"
 $env:OS_NAME

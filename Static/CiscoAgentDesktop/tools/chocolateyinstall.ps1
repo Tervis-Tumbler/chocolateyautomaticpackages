@@ -3,15 +3,25 @@
 $packageName= 'CiscoAgentDesktop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 $fileLocation = "\\fs1\DisasterRecovery\Programs\Cisco\Cisco Phone Software\CiscoAgentDesktop.msi"
-
 $compatibilityKey = "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
+$keyValue = "~ MSIAUTO"
 
-New-ItemProperty `
-    -Path $compatibilityKey `
-    -Name $fileLocation `
-    -Value "~ MSIAUTO" `
-    -PropertyType String |
-    Out-Null
+if (!(Test-Path -Path $compatibilityKey)){
+    
+    New-Item -Name Layers -Path (Split-Path -Path $compatibilityKey -Parent)
+
+}
+
+if (!(Get-ItemProperty -Path $compatibilityKey).$fileLocation) {
+
+    New-ItemProperty `
+        -Path $compatibilityKey `
+        -Name $fileLocation `
+        -Value $keyValue `
+        -PropertyType String |
+        Out-Null
+
+}
 
 $packageArgs = @{
   packageName = $packageName
