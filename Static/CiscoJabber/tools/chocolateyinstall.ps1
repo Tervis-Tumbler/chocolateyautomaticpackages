@@ -2,7 +2,7 @@
 
 $packageName= 'CiscoJabber'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$fileLocation = "\\fs1\DisasterRecovery\Programs\Cisco\Cisco Phone Software\Jabber\Jabber for Windows\Jabber 11.6.1\CiscoJabberSetup.msi"
+$fileLocation = "$(Join-Path -Path $toolsDir -ChildPath "CiscoJabberSetup.msi")"
 
 $packageArgs = @{
   packageName = $packageName

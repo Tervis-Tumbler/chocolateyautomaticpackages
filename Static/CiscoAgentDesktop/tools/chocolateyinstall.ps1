@@ -2,8 +2,8 @@
 
 $packageName= 'CiscoAgentDesktop'
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$fileLocation = "\\fs1\DisasterRecovery\Programs\Cisco\Cisco Phone Software\CiscoAgentDesktop.msi"
-$compatibilityKey = "HKCU:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
+$fileLocation = "$(Join-Path -Path $toolsDir -ChildPath "CiscoAgentDesktop.msi")"
+$compatibilityKey = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
 $keyValue = "~ MSIAUTO"
 
 if (!(Test-Path -Path $compatibilityKey)){
