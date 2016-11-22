@@ -1,14 +1,15 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName = 'office365-2016-deployment-tool'
-$packageVersion = "16.0.7213.5776"
+$packageVersion = "16.0.7614.3602"
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_7213-5776.exe' # download url
+$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_7614-3602.exe' # download url
 $installConfigFileLocation = $(Join-Path $toolsDir 'install.xml')
 $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $ignoreExtractFile = "officedeploymenttool.exe.ignore"
 $ignoreSetupFile = "setup.exe.ignore"
+$checksum = "CB9B41ABF4C3D67D082BA534F757A0C84F7CA4AF89D77590CC58290B7C875F5E"
 
 # Argument defaults
 $arch = 32
@@ -129,7 +130,7 @@ $uninstallConfigData | Out-File $uninstallConfigFileLocation
 New-Item -Path $toolsDir -Name $ignoreSetupFile
 New-Item -Path $toolsDir -Name $ignoreExtractFile
 
-$extractPackage = Get-ChocolateyWebFile -PackageName $packageName -FileFullPath "$toolsDir\officedeploymenttool.exe" -Url $url
+$extractPackage = Get-ChocolateyWebFile -PackageName $packageName -FileFullPath "$toolsDir\officedeploymenttool.exe" -Url $url -Checksum $checksum -ChecksumType SHA256
 
 $statements = "/extract:$toolsDir /quiet /norestart"
 

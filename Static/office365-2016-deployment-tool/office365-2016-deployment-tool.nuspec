@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
 	<metadata>
 		<id>office365-2016-deployment-tool</id>
-		<version>16.0.7213.5776</version>
+		<version>16.0.7614.3602</version>
 		<packageSourceUrl>https://github.com/Tervis-Tumbler/chocolateyautomaticpackages/tree/master/Static/office365-2016-deployment-tool</packageSourceUrl>
 		<owners>hambone</owners>
 		<title>Office365 2016 Deployment Tool</title>
