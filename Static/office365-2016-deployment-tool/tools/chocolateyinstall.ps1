@@ -127,8 +127,8 @@ $uninstallConfigData = @"
 $installConfigData | Out-File $installConfigFileLocation
 $uninstallConfigData | Out-File $uninstallConfigFileLocation
 
-New-Item -Path $toolsDir -Name $ignoreSetupFile
-New-Item -Path $toolsDir -Name $ignoreExtractFile
+New-Item -Path $toolsDir -Name $ignoreSetupFile -ItemType File
+New-Item -Path $toolsDir -Name $ignoreExtractFile -ItemType File
 
 $extractPackage = Get-ChocolateyWebFile -PackageName $packageName -FileFullPath "$toolsDir\officedeploymenttool.exe" -Url $url -Checksum $checksum -ChecksumType SHA256
 
