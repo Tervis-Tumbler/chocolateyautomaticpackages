@@ -15,6 +15,7 @@ $checksum = "CB9B41ABF4C3D67D082BA534F757A0C84F7CA4AF89D77590CC58290B7C875F5E"
 $arch = 32
 $sharedMachine = 0
 $logPath = "%TEMP%"
+$lang = "en-us"
 
 $arguments = @{}
 
@@ -49,6 +50,11 @@ if ($packageParameters) {
         Write-Host "Installing with Shared Computer Licensing for Remote Desktop Services."
         $sharedMachine = 1
     }
+    
+    if ($arguments.ContainsKey("Language")) {
+        Write-Host "Installing language variant $($arguments['Language'])."
+        $lang = $arguments["Language"]
+    }
 
     if ($arguments.ContainsKey("LogPath")) {
         Write-Host "Installation log in directory $($arguments['LogPath'])"
@@ -58,6 +64,7 @@ if ($packageParameters) {
 } else {
     Write-Debug "No Package Parameters Passed in"
     Write-Host "Installing 32-bit version."
+    Write-Host "Installing language variant en-us."
     Write-Host "Installation log in directory %TEMP%"
 }
 
@@ -102,7 +109,7 @@ $installConfigData = @"
 <Configuration>
   <Add OfficeClientEdition="$arch">
     <Product ID="O365ProPlusRetail">
-      <Language ID="en-us" />
+      <Language ID="$lang" />
     </Product>
   </Add>  
   <Display Level="None" AcceptEULA="TRUE" />  
@@ -115,7 +122,7 @@ $uninstallConfigData = @"
 <Configuration>
   <Remove>
     <Product ID="O365ProPlusRetail">
-      <Language ID="en-us" />
+      <Language ID="$lang" />
     </Product>
   </Remove>
   <Display Level="None" AcceptEULA="TRUE" />  
