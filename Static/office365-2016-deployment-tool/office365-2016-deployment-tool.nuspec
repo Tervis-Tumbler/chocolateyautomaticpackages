@@ -27,6 +27,7 @@ Current options are:
 * `/64bit` to install Office 365 ProPlus 64-bit, otherwise it will default to 32-bit.
 * `/Shared` to install with Shared Computer Licensing for Remote Desktop Services.
 * `/LogPath:'C:\Path\to\log\'` to specify a log location. Defaults to %PATH% if not defined.
+* `/Language:'en-us'` to set the language. `en-us` is the default setting.
 
 **Example 1**
 
