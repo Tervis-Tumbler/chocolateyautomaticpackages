@@ -38,7 +38,7 @@ This will install Office365 2016 32-bit for a single user. Logs will be in %PATH
 
 **Example 2**
 
-`choco install office365-2016-deployment-tool -packageParameters "/64bit /Shared /LogPath:'C:\logs\' /Lang:'en-us de-de'"`
+`choco install office365-2016-deployment-tool -packageParameters "/64bit /Shared /LogPath:'C:\logs\' /Lang:'de-de fr-fr'"`
 
 This will install Office365 2016 64-bit for a Remote Desktop Server and log the output to C:\logs.
 		</description>
