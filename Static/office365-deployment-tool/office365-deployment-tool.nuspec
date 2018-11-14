@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+	<metadata>
+		<id>office365-deployment-tool</id>
+		<version>16.0.11023.33600</version>
+		<packageSourceUrl>https://github.com/Tervis-Tumbler/chocolateyautomaticpackages/tree/master/Static/office365-2016-deployment-tool</packageSourceUrl>
+		<owners>hambone</owners>
+		<title>Office365 Deployment Tool</title>
+		<authors>hambone</authors>
+		<projectUrl>http://office.com</projectUrl>
+		<iconUrl>https://upload.wikimedia.org/wikipedia/commons/4/42/Microsoft_Office_2013_logo_and_wordmark.svg</iconUrl>
+		<copyright>2016 Microsoft</copyright>
+		<licenseUrl>https://www.microsoft.com/en-us/servicesagreement/</licenseUrl>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<docsUrl>https://support.office.com/</docsUrl>
+		<tags>office365 Office 365 deployment admin</tags>
+		<summary>Office Deployment Tool</summary>
+		<description>
+		The Office Deployment Tool allows the administrator to customize and manage Office Click-to-Run deployments. This tool will help adminstrators to manage installations sources, product/language combinations, and deployment configuration options for Office Click-to-Run. 
+	
+Arguments can be passed to the package using:
+
+`-packageParameters= "args"`
+
+Current options are:   
+
+* `/64bit` to install Office 365 ProPlus 64-bit, otherwise it will default to 32-bit.
+* `/Shared` to install with Shared Computer Licensing for Remote Desktop Services.
+* `/LogPath:'C:\Path\to\log\'` to specify a log location. Defaults to %PATH% if not defined.
+* `/Language:'en-us'` to set the language. `en-us` is the default setting.
+* `/VolumeLicense` to install Office 2019 Volume License.
+
+**Example 1**
+
+`choco install office365-deployment-tool`
+
+This will install Office 365 32-bit for a single user. Logs will be in %PATH%. 
+
+
+**Example 2**
+
+`choco install office365-deployment-tool -packageParameters "/64bit /Shared /LogPath:'C:\logs\'"`
+
+This will install Office 365 64-bit for a Remote Desktop Server and log the output to C:\logs.
+		</description>
+		<dependencies>
+			<dependency id="chocolatey-uninstall.extension" />
+			<dependency id="chocolatey-core.extension" version="1.1.0" />
+		</dependencies>
+		<releaseNotes>https://support.office.com/</releaseNotes>
+	</metadata>
+	<files>
+		<file src="tools\**" target="tools" />
+	</files>
+</package>
