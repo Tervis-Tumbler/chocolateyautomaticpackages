@@ -4,12 +4,12 @@ $packageName = 'office365-deployment-tool'
 $packageVersion = "16.0.11023.33600"
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_11023-33600.exe' # download url
+$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_11107-33602.exe' # download url
 $installConfigFileLocation = $(Join-Path $toolsDir 'install.xml')
 $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $ignoreExtractFile = "officedeploymenttool.exe.ignore"
 $ignoreSetupFile = "setup.exe.ignore"
-$checksum = "BD335BF3313D0B5FCEFF49390C2B19340C31A0D3436B1718533B0C8830D7F7D8"
+$checksum = "1A4EA8230699A8AB98BD9D7742C1EBE47BE679EDAFFC2CE860244FD0D4B8A686"
 
 # Package paramater defaults
 $arch = 32
@@ -37,11 +37,11 @@ function Get-PreInstalledOfficeVersionArch () {
     $installedArch = $null
     
     $installedOffice32 = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | `
-        foreach { Get-ItemProperty $_.PSPath } | `
+        ForEach-Object { Get-ItemProperty $_.PSPath } | `
         Where-Object { $_ -match "Microsoft Office*" }
 
     $installedOffice64 = Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall" | `
-        foreach { Get-ItemProperty $_.PSPath } | `
+        ForEach-Object { Get-ItemProperty $_.PSPath } | `
         Where-Object { $_ -match "Microsoft Office*" }
 
     if ($installedOffice32) {
@@ -59,7 +59,7 @@ function Get-PreInstalledOfficeVersionArch () {
 
 $PreinstalledOfficeVersionArch = Get-PreInstalledOfficeVersionArch
 
-if ($PreinstalledOfficeVersionArch.Version -ne $null) {
+if ($PreinstalledOfficeVersionArch.Version -ne "") {
     if ($PreinstalledOfficeVersionArch.Version -eq $packageVersion.Split(".")[0]) {
         Write-Error "This version of Office is already installed. Please uninstall prior installations to continue."
     } 
