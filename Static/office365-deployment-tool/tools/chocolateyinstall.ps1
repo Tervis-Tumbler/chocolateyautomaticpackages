@@ -9,7 +9,7 @@ $installConfigFileLocation = $(Join-Path $toolsDir 'install.xml')
 $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $ignoreExtractFile = "officedeploymenttool.exe.ignore"
 $ignoreSetupFile = "setup.exe.ignore"
-$checksum = "1A4EA8230699A8AB98BD9D7742C1EBE47BE679EDAFFC2CE860244FD0D4B8A686"
+$checksum = "32E7B305E26680C8F40795723190AEBC4C7BF28B50E1DAB2462B56BE2B59CEAD"
 
 # Package paramater defaults
 $arch = 32
