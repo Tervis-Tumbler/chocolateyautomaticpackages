@@ -1,10 +1,10 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName = 'office365-deployment-tool'
-$packageVersion = "16.0.11023.33600"
+$packageVersion = "16.0.11615.33602"
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_11107-33602.exe' # download url
+$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_11615-33602.exe' # download url
 $installConfigFileLocation = $(Join-Path $toolsDir 'install.xml')
 $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $ignoreExtractFile = "officedeploymenttool.exe.ignore"
@@ -25,7 +25,7 @@ if ($params.'64bit') {$arch = 64}
 if ($params.Shared) {$sharedMachine = 1}
 if ($params.Language) {$lang = $params.Language}
 if ($params.LogPath) {$logPath = $params.LogPath}
-if ($params.VolumeLicense) {$product = "Office2019Volume"; $updateChannel = "PerpetualVL2019"}
+if ($params.VolumeLicense) {$product = "ProPlus2019Volume"; $updateChannel = "PerpetualVL2019"}
 
 Write-Host @"
 Installing $product $arch-bit on the $updateChannel update channel
@@ -59,7 +59,7 @@ function Get-PreInstalledOfficeVersionArch () {
 
 $PreinstalledOfficeVersionArch = Get-PreInstalledOfficeVersionArch
 
-if ($PreinstalledOfficeVersionArch.Version -ne "") {
+if ($PreinstalledOfficeVersionArch.Version -ne $null) {
     if ($PreinstalledOfficeVersionArch.Version -eq $packageVersion.Split(".")[0]) {
         Write-Error "This version of Office is already installed. Please uninstall prior installations to continue."
     } 
