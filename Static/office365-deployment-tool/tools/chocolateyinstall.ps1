@@ -1,15 +1,15 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName = 'office365-deployment-tool'
-$packageVersion = "16.0.11615.33602"
+$packageVersion = "16.0.12624.20320"
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_11615-33602.exe' # download url
+$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_12624-20320.exe' # download url
 $installConfigFileLocation = $(Join-Path $toolsDir 'install.xml')
 $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $ignoreExtractFile = "officedeploymenttool.exe.ignore"
 $ignoreSetupFile = "setup.exe.ignore"
-$checksum = "32E7B305E26680C8F40795723190AEBC4C7BF28B50E1DAB2462B56BE2B59CEAD"
+$checksum = "AE1CFCA801D21559032ECC5F44912B17735D85A8A568258E1A717A14C7738973"
 
 # Package paramater defaults
 $arch = 32
@@ -26,6 +26,7 @@ if ($params.Shared) {$sharedMachine = 1}
 if ($params.Language) {$lang = $params.Language}
 if ($params.LogPath) {$logPath = $params.LogPath}
 if ($params.VolumeLicense) {$product = "ProPlus2019Volume"; $updateChannel = "PerpetualVL2019"}
+if ($params.Project) {$product = "ProjectStd2019Volume"; $updateChannel = "PerpetualVL2019"}
 
 Write-Host @"
 Installing $product $arch-bit on the $updateChannel update channel
