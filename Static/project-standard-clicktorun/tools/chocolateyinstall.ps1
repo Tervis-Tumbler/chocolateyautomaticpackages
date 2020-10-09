@@ -16,9 +16,10 @@ $arch = 32
 $sharedMachine = 0
 $logPath = "%TEMP%"
 $lang = "MatchOS"
-$product = "ProjectStd2019Volume"
+$product = "ProjectStdXVolume"
 # $updateChannel = "Broad"
-$updateChannel = "PerpetualVL2019"
+# $updateChannel = "PerpetualVL2019"
+$pidkey = "D8NRQ-JTYM3-7J2DX-646CT-6836M"
 
 $params = Get-PackageParameters
 
@@ -31,8 +32,8 @@ Logging to $logPath
 
 $installConfigData = @"
 <Configuration>
-  <Add OfficeClientEdition="$arch" Channel="$updateChannel">
-    <Product ID="$product">
+  <Add OfficeClientEdition="$arch">
+    <Product ID="$product" PIDKEY="$pidkey">
       <Language ID="$lang" />
     </Product>
   </Add>  
