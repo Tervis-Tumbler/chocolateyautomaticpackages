@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
 	<metadata>
 		<id>office365-deployment-tool</id>
-		<version>16.0.12827.20268</version>
+		<version>16.0.14527.20178</version>
 		<packageSourceUrl>https://github.com/Tervis-Tumbler/chocolateyautomaticpackages/tree/master/Static/office365-2016-deployment-tool</packageSourceUrl>
 		<owners>hambone</owners>
 		<title>Office365 Deployment Tool</title>
@@ -44,7 +44,6 @@ This will install Office 365 32-bit for a single user. Logs will be in %PATH%.
 This will install Office 365 64-bit for a Remote Desktop Server and log the output to C:\logs.
 		</description>
 		<dependencies>
-			<dependency id="chocolatey-uninstall.extension" />
 			<dependency id="chocolatey-core.extension" version="1.1.0" />
 		</dependencies>
 		<releaseNotes>https://support.office.com/</releaseNotes>

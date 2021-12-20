@@ -1,15 +1,15 @@
 ﻿$ErrorActionPreference = 'Stop';
 
 $packageName = 'office365-deployment-tool'
-$packageVersion = "16.0.12827.20268"
+$packageVersion = "16.0.13929.20296"
 
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_12827-20268.exe' # download url
+$url = 'https://download.microsoft.com/download/2/7/A/27AF1BE6-DD20-4CB4-B154-EBAB8A7D4A7E/officedeploymenttool_14527-20178.exe' # download url
 $installConfigFileLocation = $(Join-Path $toolsDir 'install.xml')
 $uninstallConfigFileLocation = $(Join-Path $toolsDir 'uninstall.xml')
 $ignoreExtractFile = "officedeploymenttool.exe.ignore"
 $ignoreSetupFile = "setup.exe.ignore"
-$checksum = "142F201295459271DD0DA2CC07A8A36DFB99E78782014C3663C69573BB57D5D4"
+$checksum = "088B5E39B2DF180D2472D2A20BE5C6E123FFDB287AD3177262C8163E3D3EEF77"
 
 # Package paramater defaults
 $arch = 32
